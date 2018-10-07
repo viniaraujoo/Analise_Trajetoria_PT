@@ -7,11 +7,12 @@ votos_pt = votos_pt %>% group_by(ano) %>% summarise(total = sum(votos))
 votos_pt %>% write_csv(here::here("data/votos_pt_deputados.csv"))
 
 # Eleição de 2014
-pt_2014 = read.csv("https://raw.githubusercontent.com/nazareno/eleicoes-sumario-tidy/master/data/votos_tidy_long.csv",encoding="UTF-8")
-pt_2014 = pt_2014 %>% group_by(ano,candidato,turno) %>% summarise(total = sum(votos))
+pt_2014 = read.csv("https://raw.githubusercontent.com/nazareno/eleicoes-sumario-tidy/master/data/votos_presidente_tidy.csv")
+pt_2014 = pt_2014 %>% group_by(ano,partido,turno) %>% summarise(total = sum(porcentagem_brasil))
 pt_2014 = pt_2014 %>% filter(turno == "Turno 2")
 pt_2014 = pt_2014[9:10,]
 pt_2014 %>% write_csv(here::here("data/eleicao_2014.csv"))
+
 
 #Trajetoria de lula até 2002.
 porcentagem = read.csv("https://raw.githubusercontent.com/nazareno/eleicoes-sumario-tidy/master/data/votos_presidente_tidy.csv")
