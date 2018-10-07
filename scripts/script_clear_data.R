@@ -11,7 +11,7 @@ pt_2014 = read.csv("https://raw.githubusercontent.com/nazareno/eleicoes-sumario-
 pt_2014 = pt_2014 %>% group_by(ano,partido,turno) %>% summarise(total = sum(porcentagem_brasil))
 pt_2014 = pt_2014 %>% filter(turno == "Turno 2")
 pt_2014 = pt_2014[9:10,]
-pt_2014 %>% write_csv(here::here("data/eleicao_2014.csv"))
+pt_2014 %>% write_csv(here::here("data/eleicao_2014_porcentagem.csv"))
 
 
 #Trajetoria de lula até 2002.
