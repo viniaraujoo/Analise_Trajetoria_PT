@@ -27,3 +27,5 @@ data_lula_2 = data_lula_2[16:17,]
 result = full_join(data_lula_1, data_lula_2)
 result = result[2:3]
 result %>% write_csv(here::here("data/votos_lula.csv"))
+
+
