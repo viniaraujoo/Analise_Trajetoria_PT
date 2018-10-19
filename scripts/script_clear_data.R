@@ -10,12 +10,21 @@ votos_pt %>% write_csv(here::here("data/votos_pt_deputados.csv"))
 pt_2014 = read.csv("https://raw.githubusercontent.com/nazareno/eleicoes-sumario-tidy/master/data/votos_presidente_tidy.csv")
 pt_2014 = pt_2014 %>% filter(ano == 2014)
 pt_2014 = pt_2014 %>% filter(turno == "Turno 2")
-pt_2014 = pt_2014 %>% filter(partido == "PT")
-pt_2014 = pt_2014 %>% mutate(regiao = "nordeste" ifelse(estado %in% c("Alagoas","Bahia","Ceará","Maranhão","Paraíba","Pernambuco","Piauí","Rio Grande do Norte","Sergipe"),NA))
-pt_2014 = pt_2014 %>% group_by(ano,partido,turno) %>% summarise(total = sum(porcentagem_brasil))
-
-pt_2014 = pt_2014[9:10,]
-pt_2014 %>% write_csv(here::here("data/eleicao_2014_porcentagem.csv"))
+nordeste = pt_2014 %>% filter(estado %in% c("Alagoas","Bahia","Ceará","Maranhão","Paraíba","Pernambuco","Piauí","R. G. do Norte","Sergipe"))
+nordeste = nordeste %>% mutate(regiao = "nordeste")
+suldeste =  pt_2014[17:20,]
+suldeste = suldeste %>% mutate(regiao = "suldeste")
+sul = pt_2014[21:23,]
+sul = sul %>% mutate(regiao = "sul")
+centro = pt_2014[24:26,]
+centro = centro %>% mutate(regiao = "centro-oeste")
+norte = pt_2014[1:7,]
+norte = norte %>% mutate(regiao = "norte")
+result = full_join(norte,nordeste)
+result = full_join(result,sul)
+result = full_join(result,suldeste)
+result = full_join(result,centro)
+result %>% write_csv(here::here("data/eleicao_2014_porcentagem.csv"))
 
 
 #Trajetoria de lula até 2002.
