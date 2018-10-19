@@ -8,8 +8,12 @@ votos_pt %>% write_csv(here::here("data/votos_pt_deputados.csv"))
 
 # Eleição de 2014
 pt_2014 = read.csv("https://raw.githubusercontent.com/nazareno/eleicoes-sumario-tidy/master/data/votos_presidente_tidy.csv")
-pt_2014 = pt_2014 %>% group_by(ano,partido,turno) %>% summarise(total = sum(porcentagem_brasil))
+pt_2014 = pt_2014 %>% filter(ano == 2014)
 pt_2014 = pt_2014 %>% filter(turno == "Turno 2")
+pt_2014 = pt_2014 %>% filter(partido == "PT")
+pt_2014 = pt_2014 %>% mutate(regiao = "nordeste" ifelse(estado %in% c("Alagoas","Bahia","Ceará","Maranhão","Paraíba","Pernambuco","Piauí","Rio Grande do Norte","Sergipe"),NA))
+pt_2014 = pt_2014 %>% group_by(ano,partido,turno) %>% summarise(total = sum(porcentagem_brasil))
+
 pt_2014 = pt_2014[9:10,]
 pt_2014 %>% write_csv(here::here("data/eleicao_2014_porcentagem.csv"))
 
@@ -29,3 +33,12 @@ result = result[2:3]
 result %>% write_csv(here::here("data/votos_lula.csv"))
 
 
+candidatos = read.csv("data/eleicoes-brasil-257ae4c7b59e468daf3a8d3fabfff1c7.csv")
+eleitos = candidatos %>% filter(desc_sit_tot_turno %in% c("ELEITO POR MÉDIA","ELEITO POR QP","ELEITO"))
+nao_eleitos = candidatos %>% filter(!(desc_sit_tot_turno %in% c("ELEITO POR MÉDIA","ELEITO POR QP","ELEITO")))
+eleitos = eleitos %>% group_by(ano_eleicao) %>% summarise(eleitos = n())
+nao_eleitos = nao_eleitos %>% group_by(ano_eleicao) %>% summarise(n_eleitos = n())
+resultado = full_join(eleitos, nao_eleitos)
+votos_pt = votos_pt[3:7,]
+resultado = full_join(votos_pt,resultado)
+resultado %>% write_csv(here::here("data/eleitos_n.csv"))

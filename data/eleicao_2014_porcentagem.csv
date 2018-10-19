@@ -1,3 +1,27 @@
-ano,partido,turno,total
-2014,PSDB,Turno 2,48.30903421274132
-2014,PT,Turno 2,51.69096578725868
+estado,nome,partido,coligacao,votos,porcentagem_brasil,cargo,ano,turno,regiao
+Rondônia,Dilma Rousseff ,PT,PT PT PMDB PSD PP PR PROS PDT PC B PRB,364055,0.3455953755236854,Presidente,2014,Turno 2,norte
+Acre,Dilma Rousseff ,PT,PT PT PMDB PSD PP PR PROS PDT PC B PRB,138922,0.13187787767920073,Presidente,2014,Turno 2,norte
+Amazonas,Dilma Rousseff ,PT,PT PT PMDB PSD PP PR PROS PDT PC B PRB,1033090,0.9807065594477872,Presidente,2014,Turno 2,norte
+Roraima,Dilma Rousseff ,PT,PT PT PMDB PSD PP PR PROS PDT PC B PRB,97329,0.0923938753879078,Presidente,2014,Turno 2,norte
+Pará,Dilma Rousseff ,PT,PT PT PMDB PSD PP PR PROS PDT PC B PRB,2103829,1.9971531040436734,Presidente,2014,Turno 2,norte
+Amapá,Dilma Rousseff ,PT,PT PT PMDB PSD PP PR PROS PDT PC B PRB,227414,0.21588283838800013,Presidente,2014,Turno 2,norte
+Tocantins,Dilma Rousseff ,PT,PT PT PMDB PSD PP PR PROS PDT PC B PRB,428662,0.40692643930926375,Presidente,2014,Turno 2,norte
+Maranhão,Dilma Rousseff ,PT,PT PT PMDB PSD PP PR PROS PDT PC B PRB,2475762,2.350227020909671,Presidente,2014,Turno 2,nordeste
+Piauí,Dilma Rousseff ,PT,PT PT PMDB PSD PP PR PROS PDT PC B PRB,1385096,1.314863886655463,Presidente,2014,Turno 2,nordeste
+Ceará,Dilma Rousseff ,PT,PT PT PMDB PSD PP PR PROS PDT PC B PRB,3522225,3.3436284944690025,Presidente,2014,Turno 2,nordeste
+R. G. do Norte,Dilma Rousseff ,PT,PT PT PMDB PSD PP PR PROS PDT PC B PRB,1201576,1.1406493769904211,Presidente,2014,Turno 2,nordeste
+Paraíba,Dilma Rousseff ,PT,PT PT PMDB PSD PP PR PROS PDT PC B PRB,1380988,1.3109641852294385,Presidente,2014,Turno 2,nordeste
+Pernambuco,Dilma Rousseff ,PT,PT PT PMDB PSD PP PR PROS PDT PC B PRB,3438165,3.263830806574259,Presidente,2014,Turno 2,nordeste
+Alagoas,Dilma Rousseff ,PT,PT PT PMDB PSD PP PR PROS PDT PC B PRB,941286,0.8935575356613361,Presidente,2014,Turno 2,nordeste
+Sergipe,Dilma Rousseff ,PT,PT PT PMDB PSD PP PR PROS PDT PC B PRB,772253,0.7330954540777976,Presidente,2014,Turno 2,nordeste
+Bahia,Dilma Rousseff ,PT,PT PT PMDB PSD PP PR PROS PDT PC B PRB,5059228,4.802696846685099,Presidente,2014,Turno 2,nordeste
+Paraná,Dilma Rousseff ,PT,PT PT PMDB PSD PP PR PROS PDT PC B PRB,2408740,2.286603411129972,Presidente,2014,Turno 2,sul
+Santa Catarina,Dilma Rousseff ,PT,PT PT PMDB PSD PP PR PROS PDT PC B PRB,1353808,1.2851623632334934,Presidente,2014,Turno 2,sul
+R. G. do Sul,Dilma Rousseff ,PT,PT PT PMDB PSD PP PR PROS PDT PC B PRB,2997360,2.84537708527468,Presidente,2014,Turno 2,sul
+Minas Gerais,Dilma Rousseff ,PT,PT PT PMDB PSD PP PR PROS PDT PC B PRB,5979422,5.676231864703372,Presidente,2014,Turno 2,suldeste
+Espirito Santo,Dilma Rousseff ,PT,PT PT PMDB PSD PP PR PROS PDT PC B PRB,911906,0.8656672659688833,Presidente,2014,Turno 2,suldeste
+Rio de Janeiro ,Dilma Rousseff ,PT,PT PT PMDB PSD PP PR PROS PDT PC B PRB,4488183,4.260607021752265,Presidente,2014,Turno 2,suldeste
+São Paulo,Dilma Rousseff ,PT,PT PT PMDB PSD PP PR PROS PDT PC B PRB,8488383,8.057974510647751,Presidente,2014,Turno 2,suldeste
+M. G. do Sul,Dilma Rousseff ,PT,PT PT PMDB PSD PP PR PROS PDT PC B PRB,590835,0.5608763612573283,Presidente,2014,Turno 2,centro-oeste
+Mato Grosso,Dilma Rousseff ,PT,PT PT PMDB PSD PP PR PROS PDT PC B PRB,717230,0.6808624278937327,Presidente,2014,Turno 2,centro-oeste
+Goiás,Dilma Rousseff ,PT,PT PT PMDB PSD PP PR PROS PDT PC B PRB,1365658,1.2964115019624098,Presidente,2014,Turno 2,centro-oeste
