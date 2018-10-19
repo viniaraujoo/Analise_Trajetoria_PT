@@ -12,18 +12,19 @@ pt_2014 = pt_2014 %>% filter(ano == 2014)
 pt_2014 = pt_2014 %>% filter(turno == "Turno 2")
 nordeste = pt_2014 %>% filter(estado %in% c("Alagoas","Bahia","Ceará","Maranhão","Paraíba","Pernambuco","Piauí","R. G. do Norte","Sergipe"))
 nordeste = nordeste %>% mutate(regiao = "nordeste")
-suldeste =  pt_2014[17:20,]
+suldeste =  full_join(pt_2014[17:20,],pt_2014[44:47,])
 suldeste = suldeste %>% mutate(regiao = "suldeste")
-sul = pt_2014[21:23,]
+sul = full_join(pt_2014[21:23,],pt_2014[48:50,])
 sul = sul %>% mutate(regiao = "sul")
-centro = pt_2014[24:26,]
+centro = full_join(pt_2014[24:27,],pt_2014[51:54,])
 centro = centro %>% mutate(regiao = "centro-oeste")
-norte = pt_2014[1:7,]
+norte = full_join(pt_2014[1:7,],pt_2014[28:34,])
 norte = norte %>% mutate(regiao = "norte")
 result = full_join(norte,nordeste)
 result = full_join(result,sul)
 result = full_join(result,suldeste)
 result = full_join(result,centro)
+valores =  result %>% group_by(regiao,partido) %>% summarise(porcentage = sum(porcentagem_brasil))
 result %>% write_csv(here::here("data/eleicao_2014_porcentagem.csv"))
 
 
