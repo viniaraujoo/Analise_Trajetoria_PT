@@ -43,12 +43,27 @@ result = result[2:3]
 result %>% write_csv(here::here("data/votos_lula.csv"))
 
 
-candidatos = read.csv("data/eleicoes-brasil-257ae4c7b59e468daf3a8d3fabfff1c7.csv")
+candidatos = read.csv("data/eleicoes-brasil-2a0ba60d37934549b033293c6e6fcdd0.csv")
 eleitos = candidatos %>% filter(desc_sit_tot_turno %in% c("ELEITO POR MÉDIA","ELEITO POR QP","ELEITO"))
-nao_eleitos = candidatos %>% filter(!(desc_sit_tot_turno %in% c("ELEITO POR MÉDIA","ELEITO POR QP","ELEITO")))
-eleitos = eleitos %>% group_by(ano_eleicao) %>% summarise(eleitos = n())
-nao_eleitos = nao_eleitos %>% group_by(ano_eleicao) %>% summarise(n_eleitos = n())
-resultado = full_join(eleitos, nao_eleitos)
-votos_pt = votos_pt[3:7,]
-resultado = full_join(votos_pt,resultado)
-resultado %>% write_csv(here::here("data/eleitos_n.csv"))
+nordeste = eleitos %>% filter(sigla_uf %in% c("AL","BA","CE","MA","PB","PE","PI","RN","SE"))
+suldeste = eleitos %>% filter(sigla_uf %in% c("SP","MG","RJ","ES"))
+sul = eleitos %>% filter(sigla_uf %in% c("RS","SC","PR"))
+centro = eleitos %>% filter(sigla_uf %in% c("MT","MS","GO"))
+norte = eleitos %>% filter(sigla_uf %in% c("AM","AC","RO","PA","AP","RR","TO"))
+df = df %>% mutate(regiao = "distrito-federal")
+
+
+nordeste = nordeste %>% mutate(regiao = "nordeste")
+suldeste = suldeste %>% mutate(regiao = "suldeste")
+sul = sul %>% mutate(regiao = "sul")
+centro = centro %>% mutate(regiao = "centro-oeste")
+norte = norte %>% mutate(regiao = "norte")
+df = eleitos %>% filter(sigla_uf == "DF")
+
+result = full_join(norte,nordeste)
+result = full_join(result,sul)
+result = full_join(result,suldeste)
+result = full_join(result,centro)
+result = full_join(result,df)
+result = result %>% group_by(regiao,sigla_partido) %>% summarise(total = n())
+result %>% write_csv(here::here("data/eleitos.csv"))
